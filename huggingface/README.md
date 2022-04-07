@@ -41,7 +41,6 @@ The [General Language Understanding Evaluation (GLUE)](https://gluebenchmark.com
 
 **Fine-Tuning**: You can run the [`run_glue.sh`](run_glue.sh) script for fine-tuning on each GLUE task. An example for using the script for fine-tuning on MNLI is shown below:
 ```
-MODEL=microsoft/amos
 TASK=MNLI
 GLUE_DATASET_PATH=/path/to/downloaded/glue_data
 OUT_PATH=./glue_finetune/amos
@@ -52,7 +51,7 @@ WARMUP=0.0625
 SEED=1
 
 export CUDA_VISIBLE_DEVICES=0
-bash run_glue.sh $MODEL $TASK $GLUE_DATASET_PATH $OUT_PATH $BSZ $LR $EPOCH $WARMUP $SEED
+bash run_glue.sh $TASK $GLUE_DATASET_PATH $OUT_PATH $BSZ $LR $EPOCH $WARMUP $SEED
 ```
 
 **Optimal Hyperparameters**: The fine-tuning hyperparameters leading to the best dev set performance in our experiments are shown below (please note that the results and optimal hyperparameters might slightly differ in your runs due to different computation environments):
@@ -74,7 +73,6 @@ The SQuAD 2.0 dataset will be automatically downloaded upon running the training
 
 **Fine-Tuning**: You can run the [`run_squad.sh`](run_squad.sh) script for fine-tuning on SQuAD 2.0. An example for using the script is shown below:
 ```
-MODEL=microsoft/amos
 SQUAD_DATASET_PATH=/path/to/squad2_data/
 OUT_PATH=./squad2_finetune/amos
 BSZ=32
@@ -84,7 +82,7 @@ WARMUP=0.0625
 SEED=1
 
 export CUDA_VISIBLE_DEVICES=0
-bash run_squad.sh $MODEL $SQUAD_DATASET_PATH $OUT_PATH $BSZ $LR $EPOCH $WARMUP $SEED
+bash run_squad.sh $SQUAD_DATASET_PATH $OUT_PATH $BSZ $LR $EPOCH $WARMUP $SEED
 ```
 
 **Optimal Hyperparameters**: The fine-tuning hyperparameters leading to the best dev set performance in our experiments are shown below (please note that the results and optimal hyperparameters might slightly differ in your runs due to different computation environments):
